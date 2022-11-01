@@ -5,6 +5,11 @@ function App() {
   const [review, setReview] = useState(reviews[0])
   const { image, name, job, text } = review
 
+  const supriseMe = () => {
+    const suprise = Math.floor(Math.random() * reviews.length)
+    setReview(reviews[suprise])
+  }
+
   return (
     <main>
       <header className="md:mb-14">
@@ -35,14 +40,15 @@ function App() {
 
         <div className="btn-container">
           <button className="btn">
-            <i class="fa-solid fa-angle-left"></i>
+            <i className="fa-solid fa-angle-left"></i>
           </button>
           <button className="btn">
-            <i class="fa-solid fa-angle-right"></i>
+            <i className="fa-solid fa-angle-right"></i>
           </button>
         </div>
 
-        <button className="rand-btn hover:bg-pry-clr-2 hover:text-pry-clr-4">
+        <button onClick={() => supriseMe()}
+          className="rand-btn hover:bg-pry-clr-2 hover:text-pry-clr-4">
           suprise me
         </button>
       </section>
