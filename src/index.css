@@ -1,3 +1,82 @@
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
+
+#root {
+    @apply my-10;
+}
+
+main {
+    @apply w-full flex flex-col items-center;
+}
+
+header {
+    @apply flex flex-col gap-2 mb-16 items-center justify-center tracking-wider;
+}
+
+header h1 {
+    @apply text-3xl text-pry-clr-1 font-semibold capitalize;
+}
+
+header div {
+    @apply w-32 h-1.5 bg-pry-clr-2 rounded-md;
+}
+
+.trans-all-linear {
+    @apply transition-all duration-200 ease-linear
+}
+
+.card {
+    @apply w-[85vw] max-w-[600px] h-[450px] bg-white rounded-md grid place-items-center text-center py-5 px-7 trans-all-linear;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.img-container {
+    @apply w-[150px] h-[150px] relative mb-3;
+}
+
+.img-container::before {
+    content: "";
+    @apply absolute bg-pry-clr-2 -top-[5px] -right-[7px] w-full h-full rounded-full trans-all-linear;
+}
+
+.img-container:hover::before {
+    @apply top-0 right-0;
+}
+
+img {
+    @apply object-cover rounded-full w-full h-full absolute;
+}
+
+.img-container span {
+    @apply w-[40px] h-[40px] absolute z-[1] top-0 left-[5px] text-white bg-pry-clr-2 grid place-items-center rounded-full text-xl;
+}
+
+h3 {
+    @apply tracking-wider font-medium capitalize text-pry-clr-1;
+}
+
+h6 {
+    @apply uppercase text-pry-clr-2;
+}
+
+.info {
+    @apply text-[0.85rem] font-light;
+}
+
+.rand-btn {
+    @apply px-3 py-0.5 trans-all-linear text-pry-clr-2 bg-pry-clr-3 rounded-md capitalize font-light text-sm;
+}
+
+.btn-container {
+    @apply flex gap-5 text-pry-clr-5 text-xl mb-2
+}
+
+.btn {
+    @apply trans-all-linear
+}
+
+.btn:hover {
+    @apply text-pry-clr-2;
+}
