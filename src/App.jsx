@@ -2,12 +2,36 @@ import reviews from './data'
 import { useState } from 'react'
 
 function App() {
-  const [review, setReview] = useState(reviews[0])
+  const [current, setCurrent] = useState(0)
+  const [review, setReview] = useState(reviews[current])
   const { image, name, job, text } = review
 
   const supriseMe = () => {
     const suprise = Math.floor(Math.random() * reviews.length)
-    setReview(reviews[suprise])
+    setCurrent(suprise)
+    setReview(reviews[current])
+  }
+
+  const next = () => {
+    const lastUser = reviews.length - 1
+    if (current === lastUser) {
+      setCurrent(0)
+    } else {
+      setCurrent(current + 1)
+    }
+
+    setReview(reviews[current])
+  }
+
+  const prev = () => {
+    const firstUser = 0
+    if (current === firstUser) {
+      setCurrent(reviews.length - 1)
+    } else {
+      setCurrent(current - 1)
+    }
+
+    setReview(reviews[current])
   }
 
   return (
@@ -39,10 +63,10 @@ function App() {
         <p className="info md:text-[1rem]">{text}</p>
 
         <div className="btn-container">
-          <button className="btn">
+          <button className="btn" onClick={() => prev()}>
             <i className="fa-solid fa-angle-left"></i>
           </button>
-          <button className="btn">
+          <button className="btn" onClick={() => next()}>
             <i className="fa-solid fa-angle-right"></i>
           </button>
         </div>
